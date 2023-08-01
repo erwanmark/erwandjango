@@ -38,7 +38,7 @@
                     {% csrf_token %}
 
                     <div class="form-group">
-                        <input type="text" value="{{ dta.name }}" class="form-control" placeholder="Name" name="name" required>
+                        <input type="name" value="{{ dta.name }}" class="form-control" placeholder="Name" name="name" required>
                     </div>
 
                      <div class="form-group">
@@ -46,28 +46,30 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="phone" value="{{ dta.phone }}" class="form-control  mt-2" placeholder="Phone" name="phone" required>
+                        <input type="phone" class="form-control" placeholder="Phone" name="phone" required>
+                    </div>
+
+                     <div class="form-group">
+                        <input type="to" class="form-control" placeholder="To" name="to" required>
                     </div>
 
                     <div class="form-group">
-                        <input type="country" value="{{ dta.country }}" class="form-control  mt-2" placeholder="Country" name="country" required>
+                        <input type="departure date" class="form-control  mt-2" placeholder="Departure date" name="departure date" required>
                     </div>
 
+                     <div class="form-group">
+                        <input type="returntrip" class="form-control  mt-2" placeholder="Returntrip" name="returntrip" required>
+
+                    </div>
                     <div class="form-group">
-                        <input type="city" value="{{ dta.city }}" class="form-control  mt-2" placeholder="City" name="city" required>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="number" value="{{ dta.age}}" class="form-control  mt-2" placeholder="Age" name="age" required>
-
-                    </div>
-
 
                     <div class="form-group mt-2">
-                        <select id="gender" name="gender" class="form-control" required>
-                            <option selected>{{ dta.gender }}</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
+                        <select id="from" name="from" class="form-control" required>
+                            <option selected>select from</option>
+                            <option value="town">town</option>
+                            <option value="country bus">country bus</option>
+                            <option value="railway">railway</option>
+                            <option value="nyamakima">nyamakima</option>
                         </select>
                     </div>
 
@@ -75,21 +77,17 @@
 
                         <button class="btn btn-success mt-2" type="submit">Insert</button>
                     </div>
-
-
-
                 </form>
-            </div>
+
 
             <table>
                 <tr>
                     <th>Name</th>
                     <th>email</th>
-                    <th>age</th>
                     <th>phone</th>
-                    <th>country</th>
-                    <th>city</th>
-                    <th>action</th>
+                    <th>to</th>
+                    <th>departure date</th>
+                    <th>returntrip</th>
 
                 </tr>
 
@@ -97,16 +95,17 @@
                 <tr>
                     <th>{{ d.name }}</th>
                     <th>{{ d.email }}</th>
-                    <th>{{ d.age }}</th>
                     <th>{{ d.phone }}</th>
-                    <th>{{ d.country }}</th>
-                    <th>{{ d.city }}</th>
-                    <th>{{ d.gender }}</th>
+                    <th>{{ d.to }}</th>
+                    <th>{{ d.departuredate }}</th>
+                    <th>{{ d.returntrip }}</th>
                  <th>
-                     <button>
+                     button>
                          <a href="/delete/{{ d.id }}">Delete</a>
                      </button>
-                     <button>Update</button>
+                     <button>
+                         <a href="/update/{{ d.id }}">Update</a>
+                     </button>
                  </th>
                 </tr>
                 {% endfor %}

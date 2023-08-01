@@ -38,7 +38,7 @@
                     {% csrf_token %}
 
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Name" name="name" required>
+                        <input type="name" class="form-control" placeholder="Name" name="name" required>
                     </div>
 
                     <div class="form-group">
@@ -50,26 +50,30 @@
                     </div>
 
                      <div class="form-group">
-                        <input type="country" class="form-control" placeholder="Country" name="country" required>
-                    </div>
-
-                     <div class="form-group">
-                        <input type="city" class="form-control" placeholder="City" name="city" required>
+                        <input type="to" class="form-control" placeholder="To" name="to" required>
                     </div>
 
                     <div class="form-group">
-                        <input type="number" class="form-control  mt-2" placeholder="Age" name="age" required>
+                        <input type="departure date" class="form-control  mt-2" placeholder="Departure date" name="departure date" required>
+                    </div>
+
+                     <div class="form-group">
+                        <input type="returntrip" class="form-control  mt-2" placeholder="Returntrip" name="returntrip" required>
 
                     </div>
 
 
                     <div class="form-group mt-2">
-                        <select id="gender" name="gender" class="form-control" required>
-                            <option selected>select gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
+                        <select id="from" name="from" class="form-control" required>
+                            <option selected>select from</option>
+                            <option value="town">town</option>
+                            <option value="country bus">country bus</option>
+                            <option value="railway">railway</option>
+                            <option value="nyamakima">nyamakima</option>
                         </select>
                     </div>
+
+
 
                     <div class="d-grid gap-2">
 
@@ -86,24 +90,22 @@
                     <th>Name</th>
                     <th>email</th>
                     <th>phone</th>
-                    <th>country</th>
-                    <th>city</th>
-                    <th>age</th>
-                    <th>gender</th>
-                    <th>action</th>
+                    <th>to</th>
+                    <th>departure date</th>
+                    <th>returntrip</th>
 
                 </tr>
 
-                {% for d in data %}
+
                 <tr>
                     <th>{{ d.name }}</th>
                     <th>{{ d.email }}</th>
                     <th>{{ d.phone }}</th>
-                    <th>{{ d.country }}</th>
-                    <th>{{ d.city }}</th>
-                    <th>{{ d.age }}</th>
-                    <th>{{ d.gender }}</th>
+                    <th>{{ d.to }}</th>
+                    <th>{{ d.departuredate }}</th>
+                    <th>{{ d.returntrip }}</th>
                  <th>
+            </table>
 
                      <button>
                          <a href="/delete/{{ d.id }}">Delete</a>
@@ -113,9 +115,6 @@
                      </button>
                  </th>
                 </tr>
-                {% endfor %}
-
-            </table>
 
 
 

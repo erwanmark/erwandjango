@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import people
+from .models import bookingsystem
 
 
 def insertData(request):
@@ -7,13 +7,12 @@ def insertData(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         phone = request.POST.get('phone')
-        country = request.POST.get('country')
-        city = request.POST.get('city')
-        age = request.POST.get('age')
-        gender = request.POST.get('gender')
+        to = request.POST.get('to')
+        departuredate = request.POST.get('departuredate')
+        returntrip = request.POST.get('returntrip')
 
-        query = people.objects.create(name=name, email=email, phone=phone, country=country, city=city, age=age,
-                                      gender=gender)
+
+        query = bookingsystem.objects.create(name=name, email=email, phone=phone, to=to, departuredate=departuredate, returntrip=returntrip,)
         query.save()
         return redirect("/")
     return render(request, "index.html")
@@ -21,14 +20,14 @@ def insertData(request):
 
 # function for index page
 def indexpage(request):
-    data = people.objects.all()
+    data = bookingsystem.objects.all()
     context = {"data": data}
     return render(request, "index.html", context)
 
 
 # function to delete data
 def deleteData(request, id):
-    d = people.objects.get(id=id)
+    d = bookingsystem.objects.get(id=id)
     d.delete()
     return redirect("/")
     return render(request, "index.html")
@@ -40,22 +39,20 @@ def updateData(request, id, ):
         name = request.POST.get('name')
         email = request.POST.get('email')
         phone = request.POST.get('phone')
-        country = request.POST.get('country')
-        city = request.POST.get('city')
-        age = request.POST.get('age')
-        gender = request.POST.get('gender')
+        to = request.POST.get('to')
+        departuredate = request.POST.get('departuredate')
+        returntrip = request.POST.get('returntrip')
 
-        edit_data = people.objects.get(id=id)
+        edit_data = bookingsystem.objects.get(id=id)
         edit_data.name = name
         edit_data.email = email
         edit_data.phone = phone
-        edit_data.age = age
-        edit_data.gender = gender
-        edit_data.country = country
-        edit_data.city = city
+        edit_data.to = to
+        edit_data.departuredate = departuredate
+        edit_data.returntrip = returntrip
         edit_data.save()
         return redirect("/")
 
-    dta = people.objects.get(id=id)
+    dta = bookingsystem.objects.get(id=id)
     context = {"dta": dta}
     return render(request, "edit.html", context)
