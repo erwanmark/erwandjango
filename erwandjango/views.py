@@ -8,11 +8,11 @@ def insertData(request):
         email = request.POST.get('email')
         phone = request.POST.get('phone')
         to = request.POST.get('to')
-        departuredate = request.POST.get('departuredate')
+        departuredate = request.POST.get('departure date')
         returntrip = request.POST.get('returntrip')
 
-
-        query = bookingsystem.objects.create(name=name, email=email, phone=phone, to=to, departuredate=departuredate, returntrip=returntrip,)
+        query = bookingsystem.objects.create(name=name, email=email, phone=phone, to=to, departuredate=departuredate,
+                                             returntrip=returntrip,)
         query.save()
         return redirect("/")
     return render(request, "index.html")
@@ -40,7 +40,7 @@ def updateData(request, id, ):
         email = request.POST.get('email')
         phone = request.POST.get('phone')
         to = request.POST.get('to')
-        departuredate = request.POST.get('departuredate')
+        departuredate = request.POST.get('departure date')
         returntrip = request.POST.get('returntrip')
 
         edit_data = bookingsystem.objects.get(id=id)

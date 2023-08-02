@@ -6,8 +6,9 @@ class bookingsystem(models.Model):
     email = models.EmailField()
     phone = models.IntegerField(default=1, max_length=30)
     to = models.CharField(max_length=30)
-    departuredate = models.IntegerField(default=1, max_length=30)
-    returntrip = models.IntegerField(default=1, max_length=30)
+    departuredate = models.CharField(default=1, max_length=30)
+    returntrip = models.CharField(default=1, max_length=30)
+
 
 def __str__(self):
     return self.name

@@ -88,6 +88,7 @@
                     <th>to</th>
                     <th>departure date</th>
                     <th>returntrip</th>
+                    <th>Action</th>
 
                 </tr>
 
@@ -100,12 +101,14 @@
                     <th>{{ d.departuredate }}</th>
                     <th>{{ d.returntrip }}</th>
                  <th>
-                     button>
-                         <a href="/delete/{{ d.id }}">Delete</a>
-                     </button>
-                     <button>
-                         <a href="/update/{{ d.id }}">Update</a>
-                     </button>
+
+                            <button>
+                                <a href="\delete\{{ d.id }}">delete</a>
+                            </button>
+                            <button>
+                                <a href="\update\{{ d.id }}">update</a>
+                            </button>
+
                  </th>
                 </tr>
                 {% endfor %}
