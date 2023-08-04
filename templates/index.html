@@ -5,7 +5,7 @@
     <title>Login</title>
 </head>
 <body>
-<h1>Home page</h1>
+<h1>Blacklist Transport Agency</h1>
 
 
 
@@ -31,7 +31,7 @@
 
         <div class="row">
             <div class="col-md-4">
-                <h2>Create Data</h2>
+                <h2>Book Now</h2>
                 <br>
 
                 <form action="{% url 'insertData' %}" method="post">
@@ -97,7 +97,7 @@
 
                 </tr>
 
-
+                {% for d in data %}
                 <tr>
                     <th>{{ d.name }}</th>
                     <th>{{ d.email }}</th>
@@ -112,6 +112,7 @@
                             <button>
                                 <a href="\update\{{ d.id }}">update</a>
                             </button>
+                {% endfor %}
             </table>
 
                  </th>

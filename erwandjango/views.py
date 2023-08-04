@@ -3,6 +3,7 @@ from .models import bookingsystem
 
 
 def insertData(request):
+    data= bookingsystem.objects.all
     if request.method == "POST":
         name = request.POST.get('name')
         email = request.POST.get('email')
@@ -15,6 +16,7 @@ def insertData(request):
                                              returntrip=returntrip,)
         query.save()
         return redirect("/")
+    context={"data": data}
     return render(request, "index.html")
 
 
